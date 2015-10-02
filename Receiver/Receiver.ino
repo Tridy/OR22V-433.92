@@ -1,13 +1,12 @@
+#include "X10Receiver.h"
 void setup()
 {
 
-  /* add setup code here */
 
 }
 
 void loop()
 {
-
-  /* add main program code here */
-
+	X10Receiver(8).Receive();
+	delay(2000);
 }
