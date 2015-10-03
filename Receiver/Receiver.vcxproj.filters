@@ -18,10 +18,10 @@
     <None Include="Receiver.ino" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Visual Micro\.Receiver.vsarduino.h">
+    <ClInclude Include="X10Receiver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="X10Receiver.h">
+    <ClInclude Include="__vm\.Receiver.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,6 +7,7 @@ void setup()
 
 void loop()
 {
-	X10Receiver(8).Receive();
-	delay(2000);
+	String buttonName = X10Receiver(8).Receive();
+	Serial.println(buttonName);
+	delay(500);
 }

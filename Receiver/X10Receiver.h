@@ -21,6 +21,7 @@ private:
 	void WaitForLongLow();
 	void ResetVariables();
 	void ReadLows();
+	byte GetValueFromReceivedValuesRange(byte firstIndex, byte lastIndex);
 public:
 	X10Receiver(byte pinId);
 	String Receive();
