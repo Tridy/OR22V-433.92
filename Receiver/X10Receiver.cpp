@@ -18,24 +18,10 @@ String X10Receiver::Receive()
 	ResetVariables();
 	pinMode(_pinId, INPUT);
 	WaitForLongLow();
-
 	ReadLows();
-
-	byte buttonIndex = GetValueFromReceivedValuesRange(10, 15);
-	byte readButtonCode = GetValueFromReceivedValuesRange(1, 8);
-
-	byte buttonCode = _buttonCodes[buttonIndex];
-
-	if (buttonCode - readButtonCode < 2)
-	{
-		String buttonName = _buttonNames[buttonIndex];
-		if (buttonName != "")
-		{
-			return buttonName;
-		}
-	}
-	
-	return "Unknown";
+	String buttonName = Decode();
+	delay(200);
+	return buttonName;
 }
 
 byte X10Receiver::GetValueFromReceivedValuesRange(byte firstIndex, byte lastIndex)
@@ -89,4 +75,23 @@ void X10Receiver::ReadLows()
 		_readValues[_counter] = _timing > 750;
 		_counter = _counter + 1;
 	}
+}
+
+String X10Receiver::Decode()
+{
+	byte buttonIndex = GetValueFromReceivedValuesRange(10, 15);
+	byte readButtonCode = GetValueFromReceivedValuesRange(1, 8);
+
+	byte buttonCode = _buttonCodes[buttonIndex];
+
+	if (buttonCode - readButtonCode < 2)
+	{
+		String buttonName = _buttonNames[buttonIndex];
+		if (buttonName != "")
+		{
+			return buttonName;
+		}
+	}
+
+	return "Unknown";
 }

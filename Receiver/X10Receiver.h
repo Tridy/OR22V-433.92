@@ -22,6 +22,7 @@ private:
 	void ResetVariables();
 	void ReadLows();
 	byte GetValueFromReceivedValuesRange(byte firstIndex, byte lastIndex);
+	String Decode();
 public:
 	X10Receiver(byte pinId);
 	String Receive();
